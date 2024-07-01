@@ -1,3 +1,5 @@
+version: '3.7'
+
 x-logging:
   &default-logging
   driver: "json-file"
@@ -41,7 +43,7 @@ services:
     logging: *default-logging
 
   promtail:
-    image:  grafana/promtail:2.9.2
+    image: grafana/promtail:2.9.2
     container_name: promtail
     volumes:
       - ./configs/promtail/promtail.yaml:/etc/promtail/docker-config.yaml
@@ -78,7 +80,6 @@ services:
     networks:
       - traces
     logging: *default-logging
-
 
 networks:
   traces:
